@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aperçu - Générateur de clés SSH</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .content {
+            padding: 30px;
+        }
+        .section {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 16px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .form-group label {
+            min-width: 150px;
+            font-weight: bold;
+            color: #555;
+        }
+        .form-group input, .form-group select {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .form-group input[type="checkbox"] {
+            flex: none;
+            margin-left: 0;
+        }
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background: #4CAF50;
+            color: white;
+            width: 100%;
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            background: #45a049;
+        }
+        .btn-secondary {
+            background: #3498db;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background: #2980b9;
+        }
+        .result-box {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            min-height: 200px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #333;
+            white-space: pre-wrap;
+        }
+        .button-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .info-badge {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            margin-left: 10px;
+        }
+        .features {
+            background: #ecf0f1;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .features h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+        .features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 Générateur de clés SSH</h1>
+        </div>
+        
+        <div class="content">
+            <div class="features">
+                <h3>Fonctionnalités principales</h3>
+                <ul>
+                    <li>Support Ed25519 (recommandé) et RSA 2048/4096 bits</li>
+                    <li>Protection par passphrase optionnelle</li>
+                    <li>Choix libre de l'emplacement de sauvegarde</li>
+                    <li>Copie automatique de la clé publique</li>
+                    <li>Permissions sécurisées automatiques (600/644)</li>
+                    <li>Interface graphique intuitive avec PyQt5</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Configuration de la clé</h2>
+                
+                <div class="form-group">
+                    <label>Type de clé:</label>
+                    <select>
+                        <option>Ed25519 (Recommandé)</option>
+                        <option>RSA 4096</option>
+                        <option>RSA 2048</option>
+                    </select>
+                    <span class="info-badge">Recommandé</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>Taille (bits):</label>
+                    <input type="number" value="4096" disabled style="background: #f0f0f0;">
+                    <span style="font-size: 12px; color: #999; margin-left: 10px;">(Désactivé pour Ed25519)</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>Commentaire/Email:</label>
+                    <input type="text" placeholder="votre_email@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label>Passphrase:</label>
+                    <input type="password" placeholder="Optionnel mais recommandé">
+                </div>
+                
+                <div class="form-group">
+                    <label>Confirmer:</label>
+                    <input type="password">
+                </div>
+                
+                <div class="form-group">
+                    <label></label>
+                    <input type="checkbox" id="show-pass">
+                    <label for="show-pass" style="min-width: auto; margin-left: 10px;">Afficher la passphrase</label>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Emplacement de sauvegarde</h2>
+                
+                <div class="form-group">
+                    <label>Chemin:</label>
+                    <input type="text" value="/home/user/.ssh/id_ed25519">
+                    <button class="btn btn-secondary">Parcourir...</button>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary">🔑 Générer la clé SSH</button>
+            
+            <div class="section">
+                <h2>Résultat</h2>
+                
+                <div class="result-box">✅ Clés SSH générées avec succès!
+
+Type: Ed25519 (Recommandé)
+Clé privée: /home/user/.ssh/id_ed25519
+Clé publique: /home/user/.ssh/id_ed25519.pub
+
+Permissions:
+- Clé privée: 600 (lecture/écriture propriétaire uniquement)
+- Clé publique: 644 (lecture pour tous)
+
+Clé publique:
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIExampleKeyDataHere... votre_email@example.com
+
+📋 Vous pouvez copier la clé publique avec le bouton ci-dessous.
+
+💡 Pour utiliser cette clé:
+1. Copiez la clé publique sur votre serveur
+2. Ajoutez-la à ~/.ssh/authorized_keys
+   ou utilisez: ssh-copy-id -i /home/user/.ssh/id_ed25519.pub user@host</div>
+                
+                <div class="button-row">
+                    <button class="btn btn-secondary">📋 Copier la clé publique</button>
+                    <button class="btn btn-secondary">📁 Ouvrir le dossier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
