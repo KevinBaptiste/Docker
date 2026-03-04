@@ -1,0 +1,12 @@
+{
+  "name": "club-med-emea-quiz",
+  "version": "1.0.0",
+  "description": "Flashcards interactives des resorts Club Med EMEA",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
