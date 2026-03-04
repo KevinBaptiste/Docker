@@ -1,0 +1,18 @@
+services:
+  fossflow:
+    image: stnsmith/fossflow:latest
+    pull_policy: always
+    networks:
+      - subnet1
+    environment:
+      - NODE_ENV=production
+      - ENABLE_SERVER_STORAGE=${ENABLE_SERVER_STORAGE:-true}
+      - STORAGE_PATH=/data/diagrams
+      - ENABLE_GIT_BACKUP=${ENABLE_GIT_BACKUP:-false}
+    volumes:
+      - ./diagrams:/data/diagrams
+
+networks:
+  subnet1:
+    name: subnet1
+    external: true

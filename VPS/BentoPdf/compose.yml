@@ -1,0 +1,14 @@
+services:
+  bentopdf:
+    image: bentopdf/bentopdf-simple:latest
+    container_name: bentopdf
+    restart: unless-stopped
+    networks:
+      - subnet1
+    environment:
+      - DISABLE_IPV6=true
+
+networks:
+  subnet1:
+    name: subnet1
+    external: true

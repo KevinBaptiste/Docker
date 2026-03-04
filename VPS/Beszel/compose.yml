@@ -1,0 +1,16 @@
+services:
+  beszel:
+    image: henrygd/beszel:latest
+    container_name: beszel
+    networks:
+      - subnet1
+    volumes:
+      - ./data:/beszel_data
+    environment:
+      - TZ=Europe/Paris
+    restart: unless-stopped
+    
+networks:
+  subnet1:
+    name: subnet1
+    external: true
