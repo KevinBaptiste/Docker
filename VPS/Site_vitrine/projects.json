@@ -81,4 +81,26 @@
       "Gestion packages : apt/dpkg, ajout dépôts externes, clés GPG"
     ]
   }
+  {
+  "icon": "🛡️",
+  "tags": [
+    {"label": "pfSense"},
+    {"label": "Portail captif", "color": "blue"},
+    {"label": "RADIUS", "color": "green"},
+    {"label": "QoS"},
+    {"label": "DNS Blacklist", "color": "red"}
+  ],
+  "title": "Optimisation pfSense — Portail Captif & Sécurité Réseau",
+  "desc": "Déploiement et configuration avancée de pfSense : portail captif avec vouchers et authentification RADIUS (FreeRADIUS), filtrage DNS via pfBlockerNG-devel, limitation de bande passante par Traffic Shaper, et intégration d'une blacklist DNS catégorisée.",
+  "detailsIntro": "Configuration pfSense niveau production :",
+  "details": [
+    "Portail captif : configuration zone, génération et export CSV de vouchers, messages personnalisés (thème pirate)",
+    "Authentification RADIUS : installation FreeRADIUS, ajout utilisateurs dans /etc/freeradius/3.0/users, configuration clients.conf avec Shared Secret, test radtest (Access-Accept)",
+    "Liaison pfSense ↔ FreeRADIUS : Authentication Server RADIUS, ports 1812/1813, accounting activé",
+    "pfBlockerNG-devel : activation DNSBL via Unbound, ajout feeds contenu adulte et réseaux sociaux (blocklistproject), mise à jour et reload des listes",
+    "Traffic Shaper : création Limiters (Voucher_Down / Voucher_Up), application via règles Firewall ciblant uniquement les vouchers, bypass pour les users RADIUS",
+    "Blacklist DNS : différence pfBlockerNG stable vs devel, configuration Inbound/Outbound Firewall Rules, combinaison pfBlockerNG + Unbound overrides + SquidGuard",
+    "Sécurité portail : déconnexion automatique sur site interdit (Squid + script API pfSense), limitation bande passante asymétrique (2 Mbps down / 1 Mbps up par voucher)"
+  ]
+}
 ]
