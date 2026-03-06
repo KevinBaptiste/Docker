@@ -80,7 +80,7 @@
       "Permissions Unix avancées : chmod/chown, gestion groupes, SUID/SGID",
       "Gestion packages : apt/dpkg, ajout dépôts externes, clés GPG"
     ]
-  }
+  },
   {
   "icon": "🛡️",
   "tags": [
