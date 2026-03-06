@@ -99,7 +99,7 @@
     "Liaison pfSense ↔ FreeRADIUS : Authentication Server RADIUS, ports 1812/1813, accounting activé",
     "pfBlockerNG-devel : activation DNSBL via Unbound, ajout feeds contenu adulte et réseaux sociaux (blocklistproject), mise à jour et reload des listes",
     "Traffic Shaper : création Limiters (Voucher_Down / Voucher_Up), application via règles Firewall ciblant uniquement les vouchers, bypass pour les users RADIUS",
-    "Blacklist DNS : différence pfBlockerNG stable vs devel, configuration Inbound/Outbound Firewall Rules, combinaison pfBlockerNG + Unbound overrides + SquidGuard",
+    "Blacklist DNS : différence pfBlockerNG stable vs devel, configuration Inbound/Outbound Firewall Rules, combinaison pfBlockerNG + Unbound overrides + SquidGuard"
   ]
-}
+  }
 ]
