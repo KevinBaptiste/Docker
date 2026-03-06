@@ -1,0 +1,84 @@
+[
+  {
+    "icon": "🏠",
+    "tags": [
+      {"label": "Proxmox"},
+      {"label": "Docker", "color": "green"},
+      {"label": "Personnel", "color": "orange"}
+    ],
+    "title": "Homelab Production",
+    "desc": "Infrastructure réseau complète auto-hébergée opérationnelle 24/7. VPN WireGuard, reverse proxy Nginx, monitoring, scripts Bash automatisés.",
+    "detailsIntro": "Déploiement d'une infrastructure réseau personnelle complète :",
+    "details": [
+      "Serveur Proxmox bare-metal hébergeant 4 VMs (Linux/Windows)",
+      "VPN WireGuard pour accès sécurisé et interconnexion inter-serveurs",
+      "Reverse proxy Nginx avec sous-domaines Cloudflare et SSL/TLS",
+      "NAS OpenMediaVault avec partage de fichiers NFS",
+      "Monitoring temps réel avec Beszel",
+      "Scripts Bash automatisés : monitoring système, backups cron quotidiens",
+      "Infrastructure opérationnelle 24/7"
+    ]
+  },
+  {
+    "icon": "🖥️",
+    "tags": [
+      {"label": "RAID 1"},
+      {"label": "NFS"},
+      {"label": "LVM", "color": "green"}
+    ],
+    "title": "Infrastructure Proxmox Entreprise",
+    "desc": "Déploiement d'une infrastructure virtualisée complète. Architecture multi-serveurs, stockage externalisé RAID 1, réseau segmenté, RBAC.",
+    "detailsIntro": "Déploiement d'une infrastructure virtualisée professionnelle complète :",
+    "details": [
+      "Installation Proxmox VE bare-metal, configuration réseau dual-interface",
+      "NAS OpenMediaVault avec stockage RAID 1 (tolérance panne disque)",
+      "Partage NFS monté sur Proxmox pour héberger les disques VM",
+      "Réseau segmenté NAT + LAN (192.168.20.0/24) selon schéma fourni",
+      "RBAC : utilisateur avec droits restreints par VM (moindre privilège)",
+      "Snapshots, clones et templates Debian pour déploiement rapide",
+      "Gestion LVM : PV/VG/LV, redimensionnement à chaud"
+    ]
+  },
+  {
+    "icon": "🔒",
+    "tags": [
+      {"label": "pfSense"},
+      {"label": "UFW", "color": "green"},
+      {"label": "Sécurité", "color": "orange"}
+    ],
+    "title": "Infrastructure Cloud Sécurisée",
+    "desc": "2 serveurs Linux en ligne, firewall UFW, Docker Compose, VPN WireGuard inter-serveurs, sous-domaines Cloudflare avec redirection sécurisée.",
+    "detailsIntro": "Déploiement d'une infrastructure cloud sécurisée :",
+    "details": [
+      "2 serveurs Ubuntu en ligne avec authentification clés SSH",
+      "Configuration sshd_config sécurisée (désactivation password auth)",
+      "Docker Compose avec networks définis en yml (isolation services)",
+      "Server manager open-source Termix pour gestion centralisée",
+      "Reverse proxy Nginx avec SSL/TLS automatique",
+      "Firewall UFW configuré (règles strictes, only necessary ports)",
+      "Sous-domaines Cloudflare avec API pour redirection sur ports internes",
+      "VPN WireGuard pour tunneling sécurisé entre serveurs",
+      "Monitoring open-source Beszel pour supervision temps réel"
+    ]
+  },
+  {
+    "icon": "🐧",
+    "tags": [
+      {"label": "Bash"},
+      {"label": "systemd", "color": "green"},
+      {"label": "LVM"}
+    ],
+    "title": "Administration Linux Avancée",
+    "desc": "Gestion LVM complète, scripts Bash automatisés (monitoring, backups tar.gz), services systemd custom, cron, permissions Unix avancées.",
+    "detailsIntro": "Administration système Linux niveau production :",
+    "details": [
+      "Gestion LVM : création PV/VG/LV, redimensionnement à chaud, montage /etc/fstab",
+      "Script resume.sh : monitoring système (infos poste, partitions, utilisateurs)",
+      "Script archives.sh : backups tar.gz avec arguments dynamiques (arch_user_date.tar.gz)",
+      "Systemd : création services custom (uptime.service), gestion journalctl",
+      "Cron : planification tâches automatisées (backups quotidiens, archivage /data)",
+      "Permissions Unix avancées : chmod/chown, gestion groupes, SUID/SGID",
+      "Gestion packages : apt/dpkg, ajout dépôts externes, clés GPG"
+    ]
+  }
+]
