@@ -110,7 +110,7 @@
     /* ── Card scene ────────────────────────────────────── */
     .card-scene {
       width: min(380px, 95vw);
-      height: calc(min(380px, 95vw) * 520 / 380);
+      height: calc(min(380px, 95vw) * 520 / 380 / 2);
       perspective: 1000px;
     }
     .card {
@@ -643,7 +643,7 @@
     // ── Init ──────────────────────────────────────────────
     async function init() {
       try {
-        const res = await fetch('/api/resorts');
+        const res = await fetch('/resorts.json');
         resorts   = await res.json();
         deck      = shuffle([...resorts]);
 
