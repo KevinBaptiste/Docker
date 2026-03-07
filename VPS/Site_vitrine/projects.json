@@ -124,5 +124,29 @@
     "Déclenchement : modification /etc/passwd via adduser/deluser sur hôte nextcloud",
     "Validation : réception e-mail d'alerte contenant nom du problème, hôte, sévérité Average et données opérationnelles"
   ]
-}
+  },
+  {
+  "icon": "🛡️",
+  "tags": [
+    {"label": "pfSense"},
+    {"label": "FreeRADIUS", "color": "green"},
+    {"label": "pfBlockerNG-devel", "color": "red"},
+    {"label": "Portail captif", "color": "blue"},
+    {"label": "Entreprise", "color": "orange"}
+  ],
+  "title": "Optimisation pfSense portail captif & filtrage",
+  "desc": "Configuration avancée de pfSense : filtrage DNS via pfBlockerNG-devel, portail captif avec authentification FreeRADIUS sur Ubuntu 24.04, et limitation de bande passante par vouchers via Traffic Shaper.",
+  "detailsIntro": "Configuration pfSense niveau production avec contrôle d'accès et QoS :",
+  "details": [
+    "pfBlockerNG-devel : activation DNSBL en mode Unbound, ajout liste Réseaux Sociaux",
+    "Filtrage DNS : mise à jour forcée des listes, vérification du blocage depuis poste client",
+    "FreeRADIUS : installation sur Ubuntu 24.04, création des comptes utilisateurs",
+    "Client RADIUS : déclaration de pfSense (192.168.1.1) dans clients.conf, shared secret",
+    "Portail captif : création zone sur interface LAN, authentification RADIUS MS-CHAPv2 sur ports 1812/1813",
+    "Vouchers : génération clés RSA, création roll de 100 tickets à 60 minutes, export CSV",
+    "Traffic Shaper : création limiteurs Voucher_Down et Voucher_Up à 2 Mbit/s",
+    "Règle pare-feu : association des limiteurs In/Out pipe sur règle Pass LAN IPv4",
+    "Validation : comparaison débit avec limiteur et sans limiteur sur téléchargement"
+  ]
+  }
 ]
