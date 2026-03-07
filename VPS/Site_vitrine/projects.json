@@ -89,7 +89,7 @@
     {"label": "RADIUS", "color": "green"},
     {"label": "QoS"},
     {"label": "DNS Blacklist", "color": "red"}
-  ],
+    ],
   "title": "Optimisation pfSense — Portail Captif & Sécurité Réseau",
   "desc": "Déploiement et configuration avancée de pfSense : portail captif avec vouchers et authentification RADIUS (FreeRADIUS), filtrage DNS via pfBlockerNG-devel, limitation de bande passante par Traffic Shaper, et intégration d'une blacklist DNS catégorisée.",
   "detailsIntro": "Configuration pfSense niveau production :",
@@ -100,6 +100,29 @@
     "pfBlockerNG-devel : activation DNSBL via Unbound, ajout feeds contenu adulte et réseaux sociaux (blocklistproject), mise à jour et reload des listes",
     "Traffic Shaper : création Limiters (Voucher_Down / Voucher_Up), application via règles Firewall ciblant uniquement les vouchers, bypass pour les users RADIUS",
     "Blacklist DNS : différence pfBlockerNG stable vs devel, configuration Inbound/Outbound Firewall Rules, combinaison pfBlockerNG + Unbound overrides + SquidGuard"
+    ]
+  },
+  {
+  "icon": "📧",
+  "tags": [
+    {"label": "Zabbix"},
+    {"label": "SMTP Gmail", "color": "green"},
+    {"label": "Alerting", "color": "blue"},
+    {"label": "Intégrité fichiers", "color": "red"},
+    {"label": "Supervision", "color": "orange"}
+  ],
+  "title": "Alertes mail automatisées Zabbix",
+  "desc": "Configuration complète d'une chaîne d'alertes e-mail dans Zabbix 7.4.7 via relais SMTP Gmail. Détection de modification du fichier /etc/passwd par checksum et notification automatique par courriel.",
+  "detailsIntro": "Mise en place d'une chaîne d'alertes mail complète dans Zabbix 7.4.7 :",
+  "details": [
+    "Gmail App Password : génération d'un mot de passe d'application 16 caractères dédié à Zabbix",
+    "Type de média : création canal Courriel, fournisseur Gmail, authentification SMTP",
+    "Modèle de message : configuration template HTML avec macros",
+    "Test SMTP : validation envoi via interface Zabbix",
+    "Média utilisateur : association du type Gmail à l'utilisateur Admin",
+    "Action de déclencheur : création action Alerte mail — Admin, opération Envoi message vers Admin",
+    "Déclenchement : modification /etc/passwd via adduser/deluser sur hôte nextcloud",
+    "Validation : réception e-mail d'alerte contenant nom du problème, hôte, sévérité Average et données opérationnelles"
   ]
-  }
+}
 ]
