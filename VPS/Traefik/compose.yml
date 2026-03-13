@@ -1,0 +1,26 @@
+name: traefik
+
+services:
+  traefik:
+    image: traefik:v3.3
+    container_name: traefik
+    restart: unless-stopped
+    ports:
+      - "80:80"       # HTTP
+      - "443:443"     # HTTPS
+      - "8090:8080"   # Dashboard Traefik → http://192.168.1.200:8090
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./config/traefik.yml:/etc/traefik/traefik.yml:ro
+#      - ./config/dynamic:/etc/traefik/dynamic:ro
+      - traefik_certs:/certs
+    networks:
+      - proxy
+
+volumes:
+  traefik_certs:
+
+networks:
+  proxy:
+    name: proxy
+    external: true

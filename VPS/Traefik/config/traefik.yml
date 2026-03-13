@@ -1,0 +1,51 @@
+# ─── Traefik Static Configuration ───────────────────────────────────────────
+global:
+  checkNewVersion: false
+  sendAnonymousUsage: false
+
+# Dashboard (accessible sur http://192.168.1.200:8090)
+api:
+  dashboard: true
+  insecure: true  # Acceptable en LAN local. Sécuriser si exposition future.
+
+# Points d'entrée
+entryPoints:
+  web:
+    address: ":80"
+  websecure:
+    address: ":443"
+    # Redirection automatique HTTP → HTTPS
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+          permanent: true
+
+
+
+# Providers
+providers:
+  # Provider Docker : découverte automatique des conteneurs avec labels
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false  # Seuls les conteneurs avec label traefik.enable=true sont exposés
+    network: proxy
+
+  # Provider fichier : routes statiques (ex: Nextcloud AIO)
+  file:
+    directory: /etc/traefik/dynamic
+    watch: true  # Rechargement automatique si fichier modifié
+
+# TLS par défaut (certificat auto-signé Traefik pour le LAN, en attendant un domaine)
+# Quand tu auras un domaine, on ajoutera Let's Encrypt ici.
+tls:
+  options:
+    default:
+      minVersion: VersionTLS12
+
+# Logs
+log:
+  level: DEBUG
+
+accessLog: {}  # Active les logs d'accès
