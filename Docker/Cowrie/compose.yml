@@ -1,0 +1,12 @@
+services:
+  cowrie:
+    image: cowrie/cowrie
+    container_name: cowrie-honeypot
+    ports:
+    - "2222:2222"
+    - "2223:2223" # Telnet
+    volumes:
+      - ./cowrie/etc:/cowrie/etc
+      - ./cowrie/log:/cowrie/log
+      - ./cowrie/dl:/cowrie/dl # Fichiers téléchargés
+    restart: unless-stopped

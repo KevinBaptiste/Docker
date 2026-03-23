@@ -1,0 +1,13 @@
+#Fichier de /etc/prometheus/prometheus.yml permettant de lier à un file settings pour les hôtes
+global: 
+  scrape_interval:     15s 
+  evaluation_interval: 15s 
+rule_files: 
+  # - "first.rules" 
+  # - "second.rules" 
+scrape_configs: 
+  - job_name: 'homelab'
+    file_sd_configs:
+      - files:
+          - '/etc/prometheus/targets/*.yml'
+        refresh_interval: 30s

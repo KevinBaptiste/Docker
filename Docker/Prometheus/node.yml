@@ -1,0 +1,6 @@
+# Nouveau node à créer dans /etc/prometheus/targets
+- targets:
+    - 'IP:9100'
+  labels:
+    env: homelab
+    instance: SERVER_NAME

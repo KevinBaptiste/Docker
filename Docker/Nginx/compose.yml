@@ -1,0 +1,19 @@
+services:
+  npm:
+    image: jc21/nginx-proxy-manager:latest
+    restart: unless-stopped
+    container_name: npm
+    volumes:
+      - ./npm_data:/data
+      - ./npm_letsencrypt:/etc/letsencrypt
+    networks:
+      - subnet1
+    ports:
+      - "80:80"
+      - "81:81"
+      - "443:443"
+  
+networks:
+  subnet1:
+    name: subnet1
+    driver: bridge

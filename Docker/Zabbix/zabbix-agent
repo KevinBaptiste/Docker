@@ -1,0 +1,20 @@
+wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix/zabbix-agent2_7.0.23-1%2Bdebian13_amd64.deb
+dpkg -i zabbix-agent2_7.0.23-1+debian13_amd64.deb
+apt update
+sudo apt install -y zabbix-agent
+
+sudo wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix/zabbix-agent2_7.0.23-1%2Bdebian13_amd64.deb
+sudo dpkg -i zabbix-agent2_7.0.23-1+debian13_amd64.deb
+sudo apt update
+sudo apt install -y zabbix-agent
+
+# Modification du fichier de config
+# hostname du serveur avec l'agent
+# serveur = serveur zabbix
+# Serveur active = rien du tout
+sudo vim zabbix_agentd.conf
+
+systemctl restart zabbix-agent
+systemctl status zabbix-agent
+
+# AUTOMATISER LA DECOUVERTE DES 

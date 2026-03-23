@@ -1,0 +1,33 @@
+# CONFIGURATION EN PLACE
+Pfsense avec WAN + LAN
+Serveur pour accès à distance à pfsense
+
+Services > Portail Captif
+DNS Forwarder
+
+# USERS INTERNES A PFSENSE
+
+# GENERATION DE CODES DE CONNEXION VOUCHERS
+
+_________________________________________________________________
+# IDENTIFICATION AVEC SERVEUR RADIUS
+# ---> Sur le serveur
+apt install freeradius -y
+vim /etc/freeradius/3.0/users
+Kevin   Cleartext-Password := "motdepasse123"
+
+vim /etc/freeradius/3.0/clients.conf
+client 192.168.1.1 {
+        ipaddr      = 192.168.1.1
+        secret      = testing123
+        shortname   = pfsense
+}
+
+systemctl restart freeradius.service
+systemctl status freeradius.service
+radtest Kevin motdepasse123 127.0.0.1 0 testing123
+
+# ---> Sur Pfsense
+System > User manager > Authentication servers > Add
+Hostname or IP  = 192.168.1.1
+Shared secret   = testing 123

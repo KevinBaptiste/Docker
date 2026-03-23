@@ -1,0 +1,24 @@
+# CREATION D'ALERTES
+# Ajout d'un déclencheur dans Zabbix
+# 1 Créer l'élément
+Collecte de données > Hôtes > Eléments > Créer un élément
+'Nom de l'item : modification du fichier /etc/passwd
+Type : Zabbix agent (active)
+Clé : vfs.file.cksum[/etc/passwd]
+Type de données : numérique (unsigned)
+
+# 2 Check de la première valeur de l'item
+Surveillance > Dernières données > Hôtes > Sélectionner l'hôte
+
+# 3 Créer le déclencheur
+Surveillance > Hôtes > Nextcloud > Triggers > Create trigger
+Nom du déclencheur : modification du fichier /etc/passwd
+Expression : last(/nextcloud/vfs.file.cksum[/etc/passwd],#1)<>last(/nextcloud/vfs.file.cksum[/etc/passwd],#2)
+
+# 4 Créer une action
+Sur le serveur nextcloud : adduser usertest
+
+# 5 Vérifier que l'alerte est déclenchée
+Tableau de bord > Problèmes
+
+# 6 Suppression de l'alerte

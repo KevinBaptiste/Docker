@@ -1,0 +1,27 @@
+# 1 Mot de passe d'application Google
+Compte google > sécurité > validation en deux étapes > mots de passe d'application > sélectionner l'application et le périphérique > générer > copier le mot de passe
+zjqj nria ltla anui
+
+# 2 Configurer le média mail (SMTP)
+Alertes > Types de média > Créer un type de média
+Ici, on va renseigner l'adresse d'envoi de l'alerte qui peut être une adresse professionnelle'
+
+# 2.1 Ajouter le modèle de mail
+
+# 2.2 Test de l'envoi de mail
+On sélectionne la ligne et on clique sur "Test" pour vérifier que le mail est bien envoyé à l'adresse renseignée
+
+
+# 3 Ajouter le média à l'utilisateur
+Utilisateurs > Utilisateurs > Sélectionner l'utilisateur > Onglet Médias > Ajouter 
+Envoyer à : adresse mail de l'utilisateur concerné
+
+# 4 Créer une action
+Alerte > Actions > Action de déclencheur > Créer une action
+Nom : alerte mail - admin
+> opérations > Ajouter une opération
+
+# 5 Vérifier que l'alerte est déclenchée
+deluser usertest
+
+# 6 Preuve de réception du mail
